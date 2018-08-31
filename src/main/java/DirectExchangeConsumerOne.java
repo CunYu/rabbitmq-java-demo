@@ -13,6 +13,7 @@ public class DirectExchangeConsumerOne {
         Channel channel = connection.createChannel();
 
         channel.queueDeclare(Constant.QUEUE_FOUR, true, false, false, null);
+        channel.exchangeDeclare(Constant.EXCHANGE_TWO, Constant.ExchangeType.DIRECT.getValue());
         channel.queueBind(Constant.QUEUE_FOUR, Constant.EXCHANGE_TWO, "one");
 
         Consumer consumer = new DefaultConsumer(channel) {

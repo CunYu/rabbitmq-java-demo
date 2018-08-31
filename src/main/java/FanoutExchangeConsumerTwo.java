@@ -13,6 +13,7 @@ public class FanoutExchangeConsumerTwo {
         Channel channel = connection.createChannel();
 
         channel.queueDeclare(Constant.QUEUE_THREE, true, false, false, null);
+        channel.exchangeDeclare(Constant.EXCHANGE_ONE, Constant.ExchangeType.FANOUT.getValue());
         channel.queueBind(Constant.QUEUE_THREE, Constant.EXCHANGE_ONE, "");
 
         Consumer consumer = new DefaultConsumer(channel) {

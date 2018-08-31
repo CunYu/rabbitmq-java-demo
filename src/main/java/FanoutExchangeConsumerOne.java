@@ -13,6 +13,7 @@ public class FanoutExchangeConsumerOne {
         Channel channel = connection.createChannel();
 
         channel.queueDeclare(Constant.QUEUE_TWO, true, false, false, null);
+        channel.exchangeDeclare(Constant.EXCHANGE_ONE, Constant.ExchangeType.FANOUT.getValue());
         // 绑定
         channel.queueBind(Constant.QUEUE_TWO, Constant.EXCHANGE_ONE, "");
 

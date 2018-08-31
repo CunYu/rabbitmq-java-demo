@@ -13,6 +13,7 @@ public class TopicExchangeConsumerOne {
         Channel channel = connection.createChannel();
 
         channel.queueDeclare(Constant.QUEUE_SIX, true, false, false, null);
+        channel.exchangeDeclare(Constant.EXCHANGE_THREE, Constant.ExchangeType.TOPIC.getValue());
         channel.queueBind(Constant.QUEUE_SIX, Constant.EXCHANGE_THREE, "one.*.four");
 
         Consumer consumer = new DefaultConsumer(channel) {

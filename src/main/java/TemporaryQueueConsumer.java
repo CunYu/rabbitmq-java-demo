@@ -14,6 +14,7 @@ public class TemporaryQueueConsumer {
 
         // 临时队列，一旦消费者断开，队列就自动删除了，非持久的，唯一的。
         String queueName = channel.queueDeclare().getQueue();
+        channel.exchangeDeclare(Constant.EXCHAGE_FIVE, Constant.ExchangeType.FANOUT.getValue());
         channel.queueBind(queueName, Constant.EXCHAGE_FIVE, "");
         Consumer consumer = new DefaultConsumer(channel) {
 

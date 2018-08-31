@@ -20,6 +20,7 @@ public class HeadersExchangeConsumerTwo {
         headers.put("size", "big");
 
         channel.queueDeclare(Constant.QUEUE_NIGHT, true, false, false, null);
+        channel.exchangeDeclare(Constant.EXCHANGE_FOUR, Constant.ExchangeType.HEADERS.getValue());
         channel.queueBind(Constant.QUEUE_NIGHT, Constant.EXCHANGE_FOUR, "", headers);
 
         Consumer consumer = new DefaultConsumer(channel) {
