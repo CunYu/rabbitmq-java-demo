@@ -31,7 +31,7 @@ RabbitMQ java 示例
 
 ### 详情
 
-[详情请点击](https://www.jianshu.com/p/05844a6205e2)
+[详情请点击](https://my.oschina.net/u/3320720/blog/2870478)
 
 ### 开源协议
 
